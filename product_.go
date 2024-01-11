@@ -88,7 +88,8 @@ type ProductDetailData struct {
 }
 
 type SearchProductRequest struct {
-	Status *string `json:"status" validate:"omitempty,oneof=ALL DRAFT PENDING FAILED ACTIVATE SELLER_DEACTIVATED PLATFORM_DEACTIVATED FREEZE DELETED"`
+	Status    *string `json:"status" validate:"omitempty,oneof=ALL DRAFT PENDING FAILED ACTIVATE SELLER_DEACTIVATED PLATFORM_DEACTIVATED FREEZE DELETED"`
+	SellerSku *string `json:"seller_sku" validate:"omitempty"`
 }
 
 type ProductData struct {
