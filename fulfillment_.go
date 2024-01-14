@@ -6,7 +6,7 @@ type Tracking struct {
 }
 
 type TrackingList struct {
-	Trackings []Tracking `json:"trackings"`
+	Trackings []Tracking `json:"tracking"`
 }
 
 type PackageOrderSku struct {
