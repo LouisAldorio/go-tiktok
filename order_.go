@@ -130,7 +130,7 @@ type OrderData struct {
 }
 
 type OrderList struct {
-	Products      []OrderData `json:"products"`
+	Orders        []OrderData `json:"orders"`
 	TotalCount    int         `json:"total_count"`
 	NextPageToken string      `json:"next_page_token"`
 }
