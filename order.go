@@ -22,7 +22,7 @@ func (c *Client) GetOrderList(ctx context.Context, p CommonParam, cp CursorPagin
 
 	err = c.Post(
 		ctx,
-		fmt.Sprintf("/order/%s/order/search", c.version),
+		fmt.Sprintf("/order/%s/orders/search", c.version),
 		param,
 		request,
 		&list,
