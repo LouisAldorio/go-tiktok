@@ -91,3 +91,46 @@ type OrderDetail struct {
 type OrderDetailList struct {
 	Orders []OrderDetail `json:"orders"`
 }
+
+type OrderListRequest struct {
+	OrderStatus                   *string `json:"order_status" validate:"omitempty,oneof=UNPAID ON_HOLD PARTIALLY_SHIPPING AWAITING_SHIPMENT AWAITING_COLLECTION IN_TRANSIT DELIVERED COMPLETED CANCELLED"`
+	CreatedTimeGreaterThanOrEqual *int64  `json:"created_time_greater_than_or_equal" validate:"omitempty"`
+	CreatedTimeLessThanOrEqual    *int64  `json:"created_time_less_than_or_equal" validate:"omitempty"`
+}
+
+type OrderData struct {
+	Id                          string           `json:"id"`
+	BuyerEmail                  string           `json:"buyer_email"`
+	BuyerMessage                string           `json:"buyer_message"`
+	CancelOrderSLATime          int              `json:"cancel_order_sla_time"`
+	CreateTime                  int              `json:"create_time"`
+	DeliveryOptionId            string           `json:"delivery_option_id"`
+	DeliveryOptionName          string           `json:"delivery_option_name"`
+	DeliverySLATime             int              `json:"delivery_sla_time"`
+	FulfillmentType             string           `json:"fulfillment_type"`
+	HasUpdatedReceipientAddress bool             `json:"has_updated_receipient_address"`
+	IsCod                       bool             `json:"is_cod"`
+	IsSampleOrder               bool             `json:"is_sample_order"`
+	Packages                    []OrderPackage   `json:"packages"`
+	LineItems                   []OrderLineItem  `json:"line_items"`
+	PaidTime                    int64            `json:"paid_time"`
+	Payment                     Payment          `json:"payment,omitempty"`
+	RecipientAddress            RecipientAddress `json:"recipient_address,omitempty"`
+	RtsSLATime                  int              `json:"rts_sla_time"`
+	RtsTime                     int              `json:"rts_time"`
+	ShippingProvider            string           `json:"shipping_provider"`
+	ShippingProviderID          string           `json:"shipping_provider_id"`
+	ShippingType                string           `json:"shipping_type"`
+	Status                      string           `json:"status"`
+	TrackingNumber              string           `json:"tracking_number"`
+	TtsSLATime                  int              `json:"tts_sla_time"`
+	UpdateTime                  int              `json:"update_time"`
+	UserId                      string           `json:"user_id"`
+	WarehouseId                 string           `json:"warehouse_id"`
+}
+
+type OrderList struct {
+	Products      []OrderData `json:"products"`
+	TotalCount    int         `json:"total_count"`
+	NextPageToken string      `json:"next_page_token"`
+}
