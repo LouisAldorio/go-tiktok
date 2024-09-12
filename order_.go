@@ -20,6 +20,7 @@ type RecipientAddress struct {
 }
 
 type Payment struct {
+	BuyerServiceFee             string `json:"buyer_service_fee"`
 	Currency                    string `json:"currency"`
 	OriginalTotalProductPrice   string `json:"original_total_product_price"`
 	OriginalShippingFee         string `json:"original_shipping_fee"`
@@ -46,6 +47,7 @@ type OrderLineItem struct {
 	PlatformDiscount     string `json:"platform_discount"`
 	RTSTime              int    `json:"rts_time"`
 	SalePrice            string `json:"sale_price"`
+	SellerSku            string `json:"seller_sku"`
 	SellerDiscount       string `json:"seller_discount"`
 	ShippingProviderId   string `json:"shipping_provider_id"`
 	ShippingProviderName string `json:"shipping_provider_name"`
