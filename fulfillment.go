@@ -22,7 +22,7 @@ func (c *Client) GetTracking(ctx context.Context, p CommonParam, orderId string)
 }
 
 // GetTracking get tracking.
-func (c *Client) GetPackageDetail(ctx context.Context, p CommonParam, packageId string) (pack Package, err error) {
+func (c *Client) GetPackageDetail(ctx context.Context, p CommonParam, packageId string) (pack PackageData, err error) {
 	param, err := c.commonParam(p)
 	if err != nil {
 		return
